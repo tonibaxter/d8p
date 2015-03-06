@@ -1,0 +1,178 @@
+// DEFAULT FORM
+#form
+    padding: 5% 0
+    width: 50%
+    margin: 0 auto
+    // +font-size(1.4)
+
+form, fieldset, legend, .form-element, label, .label, input, select, .select, option, .option, textarea, button, datalist, .datalist, output, .output
+    width: 100%
+    margin: 0
+    padding: 0
+    border: none
+    outline: none
+    overflow: hidden
+    +box-sizing(border-box)
+    +box-shadow(none)
+    // +appearance(none)
+
+form
+    .form-element
+        overflow: hidden
+        display: inline-block
+        width: 46%
+        padding: 2%
+
+    input, select, .select, option, .option, textarea, button, datalist, .datalist, output, .output
+        padding: 10px
+        border-right: 1px solid rgba(0,0,0,.2)
+        border-left: 1px solid rgba(0,0,0,.2)
+        +border-radius(10px)
+        font: inherit
+        text-transform: inherit
+
+    input, textarea
+        background: rgba(255,255,255,.6)
+        border-top: 2px solid rgba(0,0,0,.6)
+
+        &:focus
+            background: rgba(255,255,255,1)
+
+    input[type=submit], input[type=reset], input[type=button], button, select, .select, datalist, .datalist
+        border-top: none
+        border-bottom: 2px solid rgba(0,0,0,.6)
+        opacity: 1
+        // +transition-property(border)
+        // +transition-duration(.6s)
+
+        &:hover
+            // +transition-property(border)
+            // +transition-duration(.4s)
+            border-bottom: 1px solid rgba(0,0,0,.5)
+            cursor: pointer
+
+    fieldset
+        border: none
+
+    legend
+        text-align: center
+
+    label
+        display: block
+
+    textarea
+        resize: none
+        vertical-align: top
+
+    .form-disclaimer
+        p
+            font: inherit
+
+            span
+                font-weight: 700
+
+
+
+
+
+    // .form-checkbox, .form-checkbox-list, .form-radio, .form-radio-list
+    //     label
+    //         display: inline-block
+
+    // .form-checkbox-list, .form-radio-list
+    //     width: 100%
+
+    //     li
+    //         width: 24%
+    //         padding-right: 1%
+    //         display: inline-block
+
+    .textarea
+        width: 100%
+
+
+
+
+
+
+
+
+
+
+
+    // input[type="checkbox"]
+
+    // label, input, select, .select, option, .select-option, textarea, button, datalist, .datalist, .datalist-option, keygen, output
+    //     width: 100%
+
+    // button, input[type="button"]
+    //     // height: 40px
+
+    // select, .select
+    //     optgroup
+    //     option, .select-option
+
+    // datalist, .datalist
+    //     option, .datalist-option
+
+
+
+
+
+
+
+
+
+
+
+
+    // .form-element
+    //     +border-radius(5px)
+    //     background: #0b3851
+    //     margin: 0 0 3%
+
+    //     input
+    //         +appearance(none)
+    //         outline: none
+    //         border: none
+    //         // Project
+    //         background: #eeeeee
+    //         text-indent: 2.5%
+    //         padding: 2.5% 2.5% 2.5% 0
+
+    // .form-disclaimer
+    //     p
+    //     span
+    //         font-weight: 700
+    
+    // .form-submit
+    //     input
+    //         +appearance(none)
+    //         outline: none
+    //         border: none
+    //         cursor: pointer
+    //         // Project
+    //         font-family: 'Lato', sans-serif
+    //         text-transform: uppercase
+    //         font-weight: 700
+    //         +font-size(1.2)
+    //         background: $blue
+    //         color: 
+
+
+
+
+    //     input 
+    //         padding: 2.5% 2.5% 2.5% 0
+    //         -webkit-appearance: none
+    //         -moz-appearance: none
+    //         -ms-appearance: none
+    //         -o-appearance: none
+    //         appearance: none
+
+    //     input:focus, select:focus 
+    //         outline: none
+    //         border: none
+
+    //     input:focus 
+    //         border-left: 5px solid #ea6e23

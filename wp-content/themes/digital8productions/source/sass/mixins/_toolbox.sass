@@ -1,0 +1,130 @@
+// Perfect Bent Pipe Border Radius
+@mixin pipe-radius( $inner: 1em, $offset: 3em )
+    // Outer Radius
+    padding: $offset
+    +border-radius($inner + $offset)
+
+    &>:first-child
+        // Inner Radius
+        +border-radius($inner)
+
+// Font Size
+@mixin font( $size: 1.6, $weight: inherit, $height: inherit, $family: inherit )
+    font-family: $family
+    font-weight: $weight
+    line-height: $height
+    font-size: ($size * 10) + px
+    font-size: $size + rem
+
+    @if $size > 1
+        letter-spacing: ($size / 2) + px
+
+@mixin image( $width: auto, $height: auto, $background: $black)
+    position: relative
+    padding: 0 0 percentage($height / $width)
+    height: 0
+    background: $background
+
+    img
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+// Center
+@mixin center()
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+// Background Cover
+@mixin cover($img)
+    background: image-url($img) no-repeat center center fixed
+    +background-size(cover)
+
+@mixin heart($base: 100, $color: #f00)
+    position: relative
+    display: block
+    width: $base + px
+    height: (.9 * $base) + px
+    
+    &:before
+        position: absolute
+        content: ""
+        left: ($base/2) + px
+        top: 0
+        width: ($base/2) + px
+        height: (.8 * $base) + px
+        background: $color
+        +border-radius((($base/2) + px) (($base/2) + px) 0 0)
+        +transform(rotate(-45deg))
+        +transform-origin(0, 100%)
+    
+    &:after
+        position: absolute
+        content: ""
+        top: 0
+        width: ($base/2) + px
+        height: (.8 * $base) + px
+        background: $color
+        +border-radius((($base/2) + px) (($base/2) + px) 0 0)
+        left: 0
+        +transform(rotate(45deg))
+        +transform-origin(100%, 100%)
+
+@mixin circle-image()
+    +border-radius(50%)
+    border: 7px solid $blue
+    overflow: hidden
+    margin: 0 auto
+
+    img
+        width: 100%
+
+    @media screen and (min-width: 481px)
+        +transition-property(border-radius, border)
+        +transition-duration(.4s)
+
+        &:hover
+            +transition-property(border-radius, border)
+            +transition-duration(.3s)
+            border: 7px solid transparent
+            +border-radius(0)
+
+@mixin calc($property, $expression)
+    #{$property}: -moz-calc(#{$expression})
+    #{$property}: -webkit-calc(#{$expression})
+    #{$property}: calc(#{$expression})
+
+@mixin underline($color: inherit, $background: inherit, $body: inherit)
+    color: $color
+    text-decoration: none
+    background: linear-gradient(to bottom, transparent 49%, $color 50%) repeat-x
+    background-size: 1px 1px
+    @media (-webkit-max-device-pixel-ratio: 1.49), (max-resolution: 143dpi)
+        background-size: 1px 2px
+    background-position: 0 89%
+    text-shadow: 2px 0 $background, 1px 0 $background, -1px 0 $background, -2px 0 $background
+
+@mixin blocky($row, $buffer)
+    $oneUp: $row + 1
+    $oneDown: $row - 1
+    $actualWidth: 100% - ($buffer * $oneDown)
+    
+    font-size: 0
+    text-align: center
+    
+    >li
+        width: $actualWidth/$row
+        display: inline-block
+        text-align: left
+
+        margin: percentage($buffer / 100) percentage($buffer / 100) 0 0
+
+        &:nth-child( -n + #{$row} )
+            margin: 0 percentage($buffer / 100) 0 0
+
+        &:nth-child( #{$row}n )
+            margin-right: 0

@@ -1,0 +1,87 @@
+#page
+    padding: 3% 0 5%
+    overflow: hidden
+
+    a
+        font-weight: 400
+        color: $blue
+        +underline($blue, $background, $gray)
+
+        &:hover
+            color: $lightblue
+
+    .img-container
+        background: none
+
+    h2
+        +font(3, inherit, inherit, 'Droid Serif' Georgia serif)
+        padding-bottom: 3%
+        color: $darkgray
+        text-align: center
+
+    .left, .right
+        width: 45%
+
+    p
+        padding-bottom: 2%
+
+section
+    padding-bottom: 7%
+    clear: both
+    overflow: hidden
+
+    h3
+        display: none
+        +font(3, 100, inherit, 'Lato' sans-serif)
+        margin: 0 auto 3%
+        position: relative
+        text-align: center
+        text-transform: uppercase
+
+    .divider
+        display: block
+
+        .img-container
+            width: 8%
+            margin: 0 auto
+
+        &:before, &:after
+            content: ""
+            opacity: .4
+            width: 40%
+            height: 1px
+            display: block
+            position: absolute
+            background: $gray
+            top: 50%
+
+        &:before
+            left: 3%
+
+        &:after
+            right: 3%
+
+    &:last-child
+        padding: 0
+
+@media screen and (max-width: 750px)
+    section
+        padding-bottom: 5%
+
+    #page
+        h2
+            +font(2.5, inherit, inherit, 'Droid Serif' Georgia serif)
+
+@media screen and (max-width: 600px)
+    #page
+        padding: 5% 0
+        
+        h2
+            display: none
+
+        p
+            padding-bottom: 4%
+
+    section
+        .divider
+            +font(3, 300, inherit, inherit)

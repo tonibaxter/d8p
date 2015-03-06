@@ -1,0 +1,13 @@
+/* MAIN */
+  Develop & Design: Toni Baxter
+  Twitter: @tonibaxter
+  Site: http://www.tonibaxter.com
+
+/* SITE */
+  Last update: 12/18/2014
+  Doctype: HTML5
+  IDE: Sublime Text 2, Photoshop, Illustrator
+
+/* THANKS */
+  Background: http://subtlepatterns.com/
+  Twitter Feed: https://github.com/sonnyt/Tweetie

@@ -1,0 +1,151 @@
+// COMPASS IMPORT
+@import "layout/core.sass"
+@import "layout/common.sass"
+
+#vimeo
+    li
+        margin-top: 3%
+        display: inline-block
+        width: 48%
+
+        &:first-child
+            margin: 0
+
+        &:nth-child(2)
+            margin: 0
+
+        &:nth-child(2n)
+            float: right
+
+    .video
+        position: relative
+        padding: 35px 0 56.2%
+        height: 0
+        overflow: hidden
+
+    .video-info
+        background: rgba(255, 255, 255, .8)
+        padding: 2%
+        overflow: hidden
+        border-right: 1px solid +shade($tan, 20%)
+        border-bottom: 1px solid +shade($tan, 20%)
+        border-left: 1px solid +shade($tan, 20%)
+
+        h4
+            +font(1.6, 100, inherit, 'Droid Serif' Georgia serif)
+            padding-bottom: 2%
+
+        p
+            padding: 0
+            width: 48%
+
+        .video-date
+            float: left
+
+        .video-link
+            float: right
+            text-align: right
+
+            a
+                +underline($blue, $white, $gray)
+
+    iframe
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+#instagram
+    a
+        +text-shadow(none)
+        background: $blue
+        display: block
+
+    ul
+        +blocky(5, .5)
+
+    li
+        overflow: hidden
+        position: relative
+
+        &:hover
+            .info
+                bottom: -50px
+                opacity: 0
+                +transition-property(bottom, opacity)
+                +transition-duration(.4s)
+
+            .img-instagram
+                opacity: 1
+                +transition-property(opacity)
+                +transition-duration(.4s)
+
+    .img-instagram
+        width: 100%
+        opacity: .4
+        +transition-property(opacity)
+        +transition-duration(.6s)
+
+    .info
+        color: $tan
+        +font(1.5, 300, inherit, 'Lato' sans-serif)
+        line-height: 15px
+        position: absolute
+        bottom: 0
+        opacity: 1
+        padding: 10%
+        width: 100%
+        +transition-property(bottom, opacity)
+        +transition-duration(.6s)
+
+        p
+            float: left
+            width: 50%
+
+            span
+                float: left
+                margin-right: 10%
+                +heart(20, $tan)
+
+        .user
+            width: 20px
+            height: 20px
+            float: right
+
+@media screen and (max-width: 780px)
+    #vimeo
+        .left, .right
+            float: none
+            width: 90%
+            margin: 0 auto
+
+        .right
+            .video
+                &:last-child
+                    margin: 0
+
+        .video
+            margin-bottom: 5%
+
+            &:last-child
+                margin-bottom: 5%
+
+    #instagram
+        .info
+            display: none
+
+        .img-instagram
+            opacity: 1
+
+@media screen and (max-width: 600px)
+    #vimeo
+        .left, .right
+            width: 100%
+
+    #instagram
+        ul
+            +blocky(3, 0)
+
+        li + li + li + li + li + li + li
+            display: none
