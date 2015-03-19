@@ -1,17 +1,18 @@
 <?php
 /**
- * The default template for displaying content
- *
  * Used for both single and index/archive/search.
- *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
  */
+
+$title = trim(wp_title('', false));
 
 $author_id = the_author_meta( 'ID' );
 $author_twitter = get_field('user_twitter_handle', 'user_' . $author_id );
-echo $author_twitter . 'hi';
+echo $author_twitter . 'content.php';
+
+if ($title == 'Staff') {
+	echo 'hi';
+	get_post(7);
+}
 ?>
 
 <article>

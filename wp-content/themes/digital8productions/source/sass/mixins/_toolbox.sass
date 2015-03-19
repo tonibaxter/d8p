@@ -120,7 +120,6 @@
         width: $actualWidth/$row
         display: inline-block
         text-align: left
-
         margin: percentage($buffer / 100) percentage($buffer / 100) 0 0
 
         &:nth-child( -n + #{$row} )
@@ -128,3 +127,25 @@
 
         &:nth-child( #{$row}n )
             margin-right: 0
+
+@mixin comment($base: 100, $color: #f00)
+    display: block
+    height: ($base * .8) + px
+    width: $base + px
+
+    &:before
+        content: ""
+        display: block
+        width: $base + px
+        background: $color
+        height: ($base * .6) + px
+        border-radius: ($base * .2) + px
+
+    &:after
+        content: ""
+        display: block
+        height: 0
+        width: 0
+        margin-left: ($base * .6) + px
+        border-top: (($base / 4.5) + px) solid $color
+        border-right: (($base / 4.5) + px) solid transparent

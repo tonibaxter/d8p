@@ -1,0 +1,64 @@
+// BORDER BOX
+*
+  +box-sizing(border-box)
+
+// FONT DEFAULTS
+html
+  font-size: 62.5%
+
+body
+  font: 100%/1.618 sans-serif
+
+// ANCHOR DEFAULTS
+a
+  text-decoration: none
+  font-weight: 700
+  cursor: pointer
+
+// AVOID FLOAT ISSUES
+ol, ul
+  overflow: hidden
+
+// USER'S CONTENT
+em, i
+  font-style: italic
+
+b, strong
+  font-weight: 700
+
+// RESPONSIVE IMAGES
+.img-container
+  display: block
+  background: none
+
+  >img
+    max-width: 100%
+    border: none
+    margin: 0 auto
+    display: block
+
+// PAGE LAYOUT
+#container
+  height: 100%
+
+.content
+  max-width: 1044px
+  margin: 0 auto
+  padding: 0 1%
+
+.left
+  width: 50%
+  float: left
+
+.right
+  width: 50%
+  float: right
+
+@media screen and (min-width: 601px)
+  a
+    +transition-property(color)
+    +transition-duration(.6s)
+
+    &:hover
+      +transition-property(color)
+      +transition-duration(.4s)

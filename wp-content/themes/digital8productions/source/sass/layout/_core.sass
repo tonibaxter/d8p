@@ -5,259 +5,360 @@
 @import "compass/layout/sticky-footer"
 @import "mixins/variables.sass"
 @import "mixins/toolbox.sass"
+@import "mixins/default.sass"
 
 // STICKY FOOTER
-+sticky-footer(57px, "#sticky-container", "#sticky-footer", "footer")
-
-// RESPONSIVE IMAGES
-.img-container
-    display: block
-    background: none
-
-    >img
-        max-width: 100%
-        border: none
-        margin: 0 auto
-        display: block
-
-// DEFAULT STYLES
-*
-    +box-sizing(border-box)
-
-html
-    font-size: 62.5%
++sticky-footer(365px, "#sticky-container", "#sticky-footer", "#footer")
 
 body
-    font: 100%/1.618 sans-serif
-    color: $gray
-    +background(image-url('whitey.png'), 50%, 50%, repeat)
+  color: $gray
+  +background(image-url('whitey.png'), 50%, 50%, repeat)
+  background-attachment: fixed
 
-a
-    text-decoration: none
-    font-weight: 700
-    cursor: pointer
-
-ul
-    overflow: hidden
-
-em
-    font-style: italic
-    
 #container
-    height: 100%
-    +font(1.6, 300, inherit, 'Lato' sans-serif)
+  +font(1.6, 300, inherit, 'Lato' sans-serif)
 
 #sticky-container
-    background: rgba(249, 235, 197, .3)
+  background: rgba(249, 235, 197, .3)
 
-.left
-    width: 50%
-    float: left
-
-.right
-    width: 50%
-    float: right
-
-.content
-    max-width: 1044px
-    margin: 0 auto
-    padding: 0 10px
-
+// HEADER
 #header
-    background: $blue
-    padding-top: 15px
+  background: $blue
+  padding-top: 15px
 
-    .content
-        overflow: hidden
+  .content
+    overflow: hidden
 
+  .left, .right
+    width: 45%
+
+  .left
     li
-        width: 50%
-        +font(1.8, inherit, 70px, inherit)
-        text-transform: uppercase
+      float: left
 
-        a
-            color: $tan
-            font-weight: 100
+  .right
+    li
+      float: right
+      text-align: right
 
-    .left, .right
-        width: 45%
+  li
+    width: 50%
 
-    .left
-        li
-            float: left
+  a
+    color: $tan
+    +font(1.8, inherit, 70px, inherit)
+    text-transform: uppercase
+    font-weight: 100
 
-    .right
-        li
-            float: right
-            text-align: right
-
-    #link-home
-        width: 30px
-        text-align: center
-        margin: 0 auto
-        display: block
+  #link-home
+    width: 30px
+    text-align: center
+    margin: 0 auto
+    display: block
 
 // FOOTER
-footer
-    overflow: hidden
-    background: $blue
+#footer
+  background: $blue
+  +font(1.2, 400, inherit, 'Lato' sans-serif)
 
-    .left
-        p
-            +font(1.2, 400, 57px, 'Lato' sans-serif)
+  a
+    color: $tan
 
-    .right
-        padding: 15px 0
+    &:hover
+      color: $white
 
-        ul
-            float: right
+  div
+    li
+      padding-bottom: 2%
+
+  #footer-top
+    border-top: 1px solid darken($blue, 2)
+    padding: 1% 0
+    min-height: 304px
+
+    .content
+      &>div
+        display: inline-block
+        vertical-align: top
+        padding: 0 3% 0 0
+        width: 25%
+
+      h4
+        border-bottom: 1px solid darken($blue, 2)
+        +font(2, inherit, inherit, 'Lato' sans-serif)
+        padding-bottom: 8px
+        margin-bottom: 10px
+
+    #footer-recent
+      width: 50%
+      padding: 0
+
+      li
+        padding-bottom: 4%
+
+      #tweet-foot
         li
-            display: inline-block
-            opacity: .5
-            padding: 0 0 0 5px
+          padding: 0
+          margin: 0
 
-        a
-            width: 25px
+  #footer-bottom
+    border-top: 1px solid darken($blue, 5)
+    background: darken($blue, 3)
+    text-align: center
+    line-height: 5
 
+// ALL SCREENS WIDER THAN 600px
 @media screen and (min-width: 601px)
-    a
-        +transition-property(color)
+  #header
+    li
+      a
+        opacity: .7
+        +transition-property(opacity)
         +transition-duration(.6s)
 
         &:hover
-            +transition-property(color)
-            +transition-duration(.4s)
+          opacity: 1
+          +transition-property(opacity)
+          +transition-duration(.4s)
 
-    #header
+  #home-arrow
+    width: 0
+    height: 0
+    border-left: 20px solid transparent
+    border-right: 20px solid transparent
+    border-top: 20px solid $blue
+    display: block
+    margin: 0 auto
+
+// SCREENS SMALLER THAN 651px
+@media screen and (max-width: 650px)
+  // STICKY FOOTER
+  +sticky-footer(437px, "#sticky-container", "#sticky-footer", "#footer")
+
+  #footer
+    div
+      li
+        padding-bottom: 2%
+
+    #footer-top
+      min-height: 400px
+
+      .content
+        &>div
+          display: block
+          padding: 0 0 2%
+          width: 100%
+          margin: 0 auto
+
+        h4
+          border: none
+          text-align: center
+          padding-bottom: 0
+          margin-bottom: 0
+
+        ul
+          text-align: center
+
         li
-            a
-                opacity: .7
-                +transition-property(opacity)
-                +transition-duration(.6s)
+          display: inline
+          line-height: 2.5
 
-                &:hover
-                    opacity: 1
-                    +transition-property(opacity)
-                    +transition-duration(.4s)
+          &:after
+            content: "\00a0 \00a0 \00a0 |\00a0 \00a0 \00a0 "
 
-        .active
-            a
-                opacity: 1
-                padding-top: 1px
-                border-top: 1px solid $tan
-                font-weight: 700
+          &:nth-child(7n + 7)
+            &:after
+              content: "\A"
+              white-space: pre
 
-    #home-arrow
-        width: 0
-        height: 0
-        border-left: 20px solid transparent
-        border-right: 20px solid transparent
-        border-top: 20px solid $blue
-        display: block
-        margin: 0 auto
+          &:last-child
+            &:after
+              content: ""
 
+      #footer-recent
+        width: 100%
+
+        li
+          display: block
+          line-height: 1.5
+          padding: 1% 0
+
+          &:after
+            content: ""
+
+    #footer-bottom
+      line-height: 3
+
+// SCREENS SMALLER THAN 601px
 @media screen and (max-width: 600px)
-    #header
-        padding-top: 0
+  // STICKY FOOTER
+  +sticky-footer(428px, "#sticky-container", "#sticky-footer", "#footer")
 
+  #header
+    padding-top: 0
+
+    li
+      width: 100%
+      margin: 0 auto
+      line-height: inherit
+
+    a
+      display: block
+      line-height: 55px
+
+    &:first-child
+      border-bottom: 1px solid rgba(249, 235, 197, .3)
+
+      a
+        line-height: 54px
+
+    .left, .right
+      +calc(width, '50% - 30px')
+
+      li
+        float: none
+        text-align: center
+
+    #link-home
+      margin-top: 30px
+      width: 20px
+
+  #footer
+    #footer-top
+      min-height: 391px
+
+      .content
         li
-            width: 100%
-            margin: 0 auto
-            line-height: inherit
+          &:nth-child(6n + 6)
+            &:after
+              content: "\A"
+              white-space: pre
 
-            a
-                display: block
-                line-height: 55px
+          &:nth-child(7n + 7)
+            &:after
+              content: "\00a0 \00a0 \00a0 |\00a0 \00a0 \00a0 "
 
-            &:first-child
-                border-bottom: 1px solid rgba(249, 235, 197, .3)
+          &:last-child
+            &:after
+              content: ""
 
-                a
-                    line-height: 54px
+// SCREENS SMALLER THAN 526px
+@media screen and (max-width: 525px)
+  // STICKY FOOTER
+  +sticky-footer(467px, "#sticky-container", "#sticky-footer", "#footer")
 
-        .left, .right
-            +calc(width, '50% - 30px')
+  #footer
+    #footer-top
+      min-height: 430px
 
-            li
-                float: none
-                text-align: center
+      .content
+        li
+          &:nth-child(5n + 5)
+            &:after
+              content: "\A"
+              white-space: pre
 
-        #link-home
-            margin-top: 30px
-            width: 20px
+          &:nth-child(6n + 6)
+            &:after
+              content: "\00a0 \00a0 \00a0 |\00a0 \00a0 \00a0 "
 
-        .active
-            a
-                background: rgba(0,0,0,.4)
+          &:last-child
+            &:after
+              content: ""
 
-@media screen and (min-width: 481px)
-    footer
-        #footer-nav
-            display: none
+// SCREENS SMALLER THAN 451px
+@media screen and (max-width: 450px)
+  // STICKY FOOTER
+  +sticky-footer(510px, "#sticky-container", "#sticky-footer", "#footer")
 
-        .right
-            li
-                +transition-property(opacity)
-                +transition-duration(.6s)
+  #footer
+    #footer-top
+      min-height: 472px
 
-                &:hover
-                    opacity: 1
-                    +transition-property(opacity)
-                    +transition-duration(.4s)
+      .content
+        li
+          &:nth-child(4n + 4)
+            &:after
+              content: "\A"
+              white-space: pre
 
-@media screen and (max-width: 480px)
-    // STICKY FOOTER
-    +sticky-footer(150px, "#sticky-container", "#sticky-footer", "footer")
+          &:nth-child(5n + 5)
+            &:after
+              content: "\00a0 \00a0 \00a0 |\00a0 \00a0 \00a0 "
 
-    footer
-        padding: 20px 0
+          &:last-child
+            &:after
+              content: ""
 
-        .left, .right
-            float: none
-            width: 100%
 
-        .left
-            p
-                line-height: inherit
-                // +font-size(1.2)
-                text-align: center
+// @media screen and (min-width: 481px)
+//     // footer
+//     //     #footer-nav
+//     //         display: none
 
-        .right
-            padding: 0
+//     //     .right
+//     //         li
+//     //             +transition-property(opacity)
+//     //             +transition-duration(.6s)
 
-            ul
-                float: none
-                text-align: center
-                max-height: 35px
+//     //             &:hover
+//     //                 opacity: 1
+//     //                 +transition-property(opacity)
+//     //                 +transition-duration(.4s)
 
-            li
-                display: inline-block
-                padding: 0
+// @media screen and (max-width: 480px)
+//     // // STICKY FOOTER
+//     // +sticky-footer(150px, "#sticky-container", "#sticky-footer", "footer")
 
-            a
-                width: 35px
-                padding: 0 5px
+//     // footer
+//     //     padding: 20px 0
 
-        #footer-nav
-            width: 100%
-            text-align: center
-            padding: 20px 0
+//     //     .left, .right
+//     //         float: none
+//     //         width: 100%
 
-            li
-                display: inline-block
-                // +font-size(1.4)
+//     //     .left
+//     //         p
+//     //             line-height: inherit
+//     //             // +font-size(1.2)
+//     //             text-align: center
 
-                a
-                    color: $tan
-                    font-weight: 300
-                    padding: 0 10px
+//     //     .right
+//     //         padding: 0
 
-                &:after
-                    content: ""
-                    opacity: .8
-                    border-right: 1px solid $gray
+//     //         ul
+//     //             float: none
+//     //             text-align: center
+//     //             max-height: 35px
 
-                &:last-child
-                    &:after
-                        content: ""
-                        border: none
+//     //         li
+//     //             display: inline-block
+//     //             padding: 0
+
+//     //         a
+//     //             width: 35px
+//     //             padding: 0 5px
+
+//     //     #footer-nav
+//     //         width: 100%
+//     //         text-align: center
+//     //         padding: 20px 0
+
+//     //         li
+//     //             display: inline-block
+//     //             // +font-size(1.4)
+
+//     //             a
+//     //                 color: $tan
+//     //                 font-weight: 300
+//     //                 padding: 0 10px
+
+//     //             &:after
+//     //                 content: ""
+//     //                 opacity: .8
+//     //                 border-right: 1px solid $gray
+
+//     //             &:last-child
+//     //                 &:after
+//     //                     content: ""
+//     //                     border: none

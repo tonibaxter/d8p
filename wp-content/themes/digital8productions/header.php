@@ -1,16 +1,7 @@
 <?php
   $full_url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
   $name = get_bloginfo( 'name' );
-  $title = get_the_title();
-
-  function convert_email_adr($email) {
-    $pieces = str_split(trim($email));
-    $new_mail = '';
-    foreach ($pieces as $val) {
-      $new_mail .= '&#'.ord($val).';';
-    }
-    return $new_mail;
-  }
+  $title = trim(wp_title('', false));
 
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -136,13 +127,11 @@
 
     if ( is_front_page() || is_home() ) {
       echo 'index';
-    } elseif ( is_single() ) {
-      echo 'post';
     } else {
       if ( $title ) {
         echo strtolower($title);
       } else {
-      echo 'core';
+        echo 'default';
       }
     }
     echo '.css">'

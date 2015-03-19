@@ -1,6 +1,9 @@
 *.log
 .DS_Store
 .htaccess
+.sass-cache/
+config.codekit
+config.rb
 index.php
 license.txt
 readme.html
@@ -8,7 +11,7 @@ README.md
 sitemap.xml
 sitemap.xml.gz
 wp-activate.php
-wp-admin/*
+wp-admin/
 wp-blog-header.php
 wp-comments-post.php
 wp-config.php
@@ -18,9 +21,11 @@ wp-content/backups/
 wp-content/blogs.dir/
 wp-content/cache/
 wp-content/index.php
+wp-content/plugins/*/
 wp-content/themes/index.php
+wp-content/themes/digital8productions/private/
 wp-content/themes/twentyfifteen/*
-wp-content/upgrade/
+wp-content/upgrade/*/
 wp-content/wp-cache-config.php
 wp-cron.php
 wp-includes/*
